@@ -4,10 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>Sanzu</title>
-  <!-- Font Awesome 5 (free) – static CDN, no tracking -->
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css">
   <style>
-    /* RESET & BASE */
     * {
       margin: 0;
       padding: 0;
@@ -24,7 +22,7 @@
       flex-direction: column;
     }
 
-    /* ----- HEADER – pure black, no animations ----- */
+    /* ----- black header (no animations) ----- */
     header {
       background: #000000;
       color: #ffffff;
@@ -41,12 +39,16 @@
     }
 
     .header-icon a {
-      color: #9ca3af;        /* grey */
+      color: #ffffff;            /* grey */
       font-size: 2.2rem;
-      /* no hover effect – completely static */
+      transition: color 0.2s;    /* only color change on hover, no transform */
     }
 
-    /* ----- MAIN CONTENT – no fade-ins or movements ----- */
+    .header-icon a:hover {
+      color: #cfcfcf;
+    }
+
+    /* ----- main content ----- */
     main {
       flex: 1;
       max-width: 960px;
@@ -55,14 +57,21 @@
       width: 100%;
     }
 
+    /* simple fade-in for hero (keeps entrance gentle) */
     .hero {
       text-align: center;
       margin-bottom: 2rem;
+      animation: fadeIn 0.6s ease-out;
+    }
+
+    @keyframes fadeIn {
+      0% { opacity: 0; }
+      100% { opacity: 1; }
     }
 
     .android-icon {
       font-size: 5rem;
-      color: #6b7280;        /* grey */
+      color: #6b7280;
       margin-bottom: 0.5rem;
     }
 
@@ -78,7 +87,7 @@
       margin-bottom: 2rem;
     }
 
-    /* ----- DOWNLOAD CARD (no animations inside, except button) ----- */
+    /* download card */
     .download-card {
       background: #ffffff;
       border: 2px solid #e6e6e6;
@@ -109,9 +118,10 @@
       padding: 0.2rem 0.9rem;
       border-radius: 40px;
       font-size: 0.85rem;
+      font-weight: normal;
     }
 
-    /* ----- BUTTON ANIMATION – the only moving part ----- */
+    /* ----- BUTTON ANIMATION (only animation on page) ----- */
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -127,7 +137,6 @@
       text-decoration: none;
       border: none;
       cursor: pointer;
-      /* smooth transitions for hover effects */
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
@@ -140,12 +149,12 @@
 
     .download-btn:hover {
       background: #1e1e1e;
-      transform: scale(1.03);              /* gentle pop */
+      transform: scale(1.03);              /* gentle scale */
       box-shadow: 0 10px 18px rgba(0,0,0,0.12);
     }
 
     .download-btn:hover i {
-      color: #ffffff;                       /* icon lights up */
+      color: #ffffff;
     }
 
     .file-hint {
@@ -154,7 +163,7 @@
       font-size: 0.85rem;
     }
 
-    /* FEATURE GRID – clean, no interactions */
+    /* feature grid – clean and simple */
     .features {
       display: flex;
       flex-wrap: wrap;
@@ -171,7 +180,7 @@
 
     .feature-item i {
       font-size: 2.5rem;
-      color: #6b7280;        /* grey */
+      color: #6b7280;
       margin-bottom: 0.25rem;
     }
 
@@ -182,7 +191,7 @@
       font-weight: 500;
     }
 
-    /* FOOTER – static, with copyright 2026 */
+    /* footer */
     footer {
       text-align: center;
       margin: 2rem 0 1.5rem;
@@ -198,7 +207,6 @@
       background: #f3f4f6;
       padding: 0.5rem 1.2rem;
       border-radius: 60px;
-      /* no hover effects */
     }
 
     .github-foot i {
@@ -214,7 +222,7 @@
     }
 
     .github-foot a:hover {
-      border-bottom: 1px dotted #6b7280;   /* subtle underline, not an animation */
+      border-bottom: 1px dotted #6b7280;
     }
 
     .copyright {
@@ -223,7 +231,7 @@
       color: #9ca3af;
     }
 
-    /* RESPONSIVE */
+    /* responsiveness */
     @media (max-width: 640px) {
       header {
         padding: 0.8rem 1.2rem;
@@ -264,7 +272,6 @@
   </style>
 </head>
 <body>
-  <!-- BLACK HEADER with only "Sanzu" and static GitHub icon -->
   <header>
     <div class="site-name">Sanzu</div>
     <div class="header-icon">
@@ -275,30 +282,27 @@
   </header>
 
   <main>
-    <!-- HERO – static, no animations -->
     <div class="hero">
       <i class="fab fa-android android-icon" aria-hidden="true"></i>
       <h1>Sanzu</h1>
       <div class="tagline">Python notes & IDE</div>
     </div>
 
-    <!-- DOWNLOAD CARD – button is the only interactive element with animation -->
     <div class="download-card">
       <div class="version-info">
         <i class="fas fa-tag"></i>
-        <span>v1.0.0</span>
+        <span>v1.0</span>
         <span class="free-badge">100% free</span>
       </div>
-      <a href="#" class="download-btn" role="button" aria-label="Download APK">
+      <a href="https://drive.google.com/file/d/1Wr9aV8GbV_u23oFCKkH-8aHqFFEMd4QB/view?usp=sharing" class="download-btn" role="button" aria-label="Download APK">
         <i class="fas fa-download" aria-hidden="true"></i>
         Get APK
       </a>
       <div class="file-hint">
-        <i class="fas fa-file"></i> offline · 28 MB
+        <i class="fas fa-file"></i> offline · 10 MB
       </div>
     </div>
 
-    <!-- FEATURE GRID – four icons, no extra text -->
     <div class="features">
       <div class="feature-item">
         <i class="fas fa-book"></i>
@@ -318,7 +322,6 @@
       </div>
     </div>
 
-    <!-- FOOTER with GitHub handle and copyright 2026 -->
     <footer>
       <div class="github-foot">
         <i class="fab fa-github"></i>
@@ -331,4 +334,3 @@
   </main>
 </body>
 </html>
-
