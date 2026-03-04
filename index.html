@@ -29,7 +29,7 @@
       flex-direction: column;
     }
 
-    /* ----- black header (no animations) ----- */
+    
     header {
       background: #000000;
       color: #ffffff;
@@ -46,16 +46,16 @@
     }
 
     .header-icon a {
-      color: #ffffff;            /* grey */
+      color: #ffffff;            
       font-size: 2.2rem;
-      transition: color 0.2s;    /* only color change on hover, no transform */
+      transition: color 0.2s;    
     }
 
     .header-icon a:hover {
       color: #cfcfcf;
     }
 
-    /* ----- main content ----- */
+    
     main {
       flex: 1;
       max-width: 960px;
@@ -64,7 +64,7 @@
       width: 100%;
     }
 
-    /* simple fade-in for hero (keeps entrance gentle) */
+    
     .hero {
       text-align: center;
       margin-bottom: 2rem;
@@ -76,10 +76,12 @@
       100% { opacity: 1; }
     }
 
-    .android-icon {
-      font-size: 5rem;
-      color: #6b7280;
+    /* New style for the custom logo */
+    .hero-icon {
+      width: 5rem;
+      height: auto;
       margin-bottom: 0.5rem;
+      display: inline-block;
     }
 
     h1 {
@@ -94,7 +96,7 @@
       margin-bottom: 2rem;
     }
 
-    /* download card */
+    
     .download-card {
       background: #ffffff;
       border: 2px solid #e6e6e6;
@@ -128,7 +130,7 @@
       font-weight: normal;
     }
 
-    /* ----- BUTTON ANIMATION (only animation on page) ----- */
+    
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -156,7 +158,7 @@
 
     .download-btn:hover {
       background: #1e1e1e;
-      transform: scale(1.03);              /* gentle scale */
+      transform: scale(1.03);             
       box-shadow: 0 10px 18px rgba(0,0,0,0.12);
     }
 
@@ -170,7 +172,7 @@
       font-size: 0.85rem;
     }
 
-    /* feature grid – clean and simple */
+    
     .features {
       display: flex;
       flex-wrap: wrap;
@@ -198,7 +200,7 @@
       font-weight: 500;
     }
 
-    /* footer */
+    
     footer {
       text-align: center;
       margin: 2rem 0 1.5rem;
@@ -238,7 +240,7 @@
       color: #9ca3af;
     }
 
-    /* responsiveness */
+    
     @media (max-width: 640px) {
       header {
         padding: 0.8rem 1.2rem;
@@ -266,6 +268,10 @@
       .feature-item i {
         font-size: 2.2rem;
       }
+      /* Optional: scale logo on small screens */
+      .hero-icon {
+        width: 4rem;
+      }
     }
 
     @media (max-width: 380px) {
@@ -274,6 +280,9 @@
       }
       main {
         padding: 0 1rem;
+      }
+      .hero-icon {
+        width: 3.5rem;
       }
     }
   </style>
@@ -289,8 +298,9 @@
   </header>
 
   <main>
+    <!-- UPDATED HERO SECTION WITH YOUR LOGO -->
     <div class="hero">
-      <i class="fab fa-android android-icon" aria-hidden="true"></i>
+      <img src="sanzu.png" alt="Sanzu Logo" class="hero-icon">
       <h1>Sanzu</h1>
       <div class="tagline">Python notes & IDE</div>
     </div>
@@ -341,5 +351,3 @@
   </main>
 </body>
 </html>
-
-
