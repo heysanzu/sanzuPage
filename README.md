@@ -24,5 +24,5 @@ This app combines comprehensive Python notes with a built‑in compiler, so you 
 
 ---
 <p align="center">
-  Made for begginers, by <a href="https://github.com/heysanzu">heysanzu</a>
+  Made for beginners, by <a href="https://github.com/heysanzu">heysanzu</a>
 </p>
