@@ -13,12 +13,12 @@
       box-sizing: border-box;
     }
     @font-face {
-    font-family: 'SanzuFont'; 
-    src: url('fonts/comic_sans_regular.ttf') format('truetype');
-    font-weight: normal;
-    font-style: normal;
-    font-display: swap;
-    }   
+      font-family: 'SanzuFont';
+      src: url('fonts/comic_sans_regular.ttf') format('truetype');
+      font-weight: normal;
+      font-style: normal;
+      font-display: swap;
+    }
     body {
       background: #ffffff;
       font-family: 'SanzuFont', 'Comic Sans MS', 'Comic Sans', cursive, sans-serif;
@@ -29,7 +29,7 @@
       flex-direction: column;
     }
 
-    
+    /* ── HEADER ── */
     header {
       background: #000000;
       color: #ffffff;
@@ -39,23 +39,198 @@
       justify-content: space-between;
       flex-wrap: wrap;
     }
-
-    .site-name {
-      font-size: 2rem;
-      font-weight: 600;
-    }
-
+    .site-name { font-size: 2rem; font-weight: 600; }
     .header-icon a {
-      color: #ffffff;            
+      color: #ffffff;
       font-size: 2.2rem;
-      transition: color 0.2s;    
+      transition: color 0.2s;
+    }
+    .header-icon a:hover { color: #cfcfcf; }
+
+    /* ── WHAT'S NEW BANNER ── */
+    .whats-new-banner {
+      background: #000;
+      color: #fff;
+      text-align: center;
+      padding: 0.6rem 1.2rem;
+      font-size: 0.95rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.7rem;
+      cursor: pointer;
+      transition: background 0.2s;
+      position: relative;
+    }
+    .whats-new-banner:hover { background: #1a1a1a; }
+    .whats-new-banner .badge {
+      background: #fff;
+      color: #000;
+      border-radius: 40px;
+      padding: 0.1rem 0.65rem;
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      white-space: nowrap;
+    }
+    .banner-arrow { font-size: 0.85rem; opacity: 0.6; }
+    .banner-close {
+      position: absolute;
+      right: 1rem;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      color: #aaa;
+      cursor: pointer;
+      font-size: 1rem;
+      padding: 0.2rem 0.4rem;
+      line-height: 1;
+      transition: color 0.2s;
+    }
+    .banner-close:hover { color: #fff; }
+
+    /* ── POPUP OVERLAY ── */
+    .overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.55);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+      padding: 1rem;
+      backdrop-filter: blur(3px);
+      animation: fadeOverlay 0.2s ease;
+    }
+    .overlay.open { display: flex; }
+    @keyframes fadeOverlay {
+      from { opacity: 0; } to { opacity: 1; }
     }
 
-    .header-icon a:hover {
-      color: #cfcfcf;
+    .popup {
+      background: #ffffff;
+      border: 2px solid #000;
+      border-radius: 28px;
+      max-width: 480px;
+      width: 100%;
+      padding: 2rem 2rem 1.8rem;
+      position: relative;
+      animation: slideUp 0.25s cubic-bezier(0.34,1.56,0.64,1);
+      max-height: 90vh;
+      overflow-y: auto;
+    }
+    @keyframes slideUp {
+      from { opacity: 0; transform: translateY(30px) scale(0.97); }
+      to   { opacity: 1; transform: translateY(0) scale(1); }
     }
 
-    
+    .popup-close {
+      position: absolute;
+      top: 1rem;
+      right: 1.1rem;
+      background: #f3f4f6;
+      border: none;
+      border-radius: 50%;
+      width: 2rem;
+      height: 2rem;
+      font-size: 1rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #555;
+      transition: background 0.2s, color 0.2s;
+    }
+    .popup-close:hover { background: #000; color: #fff; }
+
+    .popup-header {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 1.5rem;
+    }
+    .popup-header .emoji { font-size: 1.8rem; }
+    .popup-header h2 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      line-height: 1.2;
+    }
+    .popup-header .version-tag {
+      background: #000;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.15rem 0.65rem;
+      border-radius: 40px;
+      margin-left: auto;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+
+    /* ── CHANGELOG ENTRIES ── */
+    .changelog { list-style: none; display: flex; flex-direction: column; gap: 0.85rem; }
+    .changelog li {
+      display: flex;
+      gap: 0.75rem;
+      align-items: flex-start;
+      padding: 0.8rem 1rem;
+      border-radius: 14px;
+      border: 1.5px solid #e5e7eb;
+      background: #fafafa;
+      transition: border-color 0.2s;
+    }
+    .changelog li:hover { border-color: #000; }
+    .cl-icon {
+      width: 2rem;
+      height: 2rem;
+      border-radius: 10px;
+      background: #000;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      flex-shrink: 0;
+    }
+    .cl-text strong {
+      display: block;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 0.1rem;
+    }
+    .cl-text span {
+      font-size: 0.82rem;
+      color: #6b7280;
+    }
+
+    /* type-specific icon bg */
+    .cl-icon.new   { background: #000; }
+    .cl-icon.fix   { background: #374151; }
+    .cl-icon.improve { background: #111827; }
+
+    /* pill tags */
+    .cl-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 0.05rem 0.5rem;
+      border-radius: 40px;
+      margin-left: 0.4rem;
+      vertical-align: middle;
+      font-weight: 700;
+      letter-spacing: 0.03em;
+    }
+    .cl-tag.new-tag      { background: #e0f2fe; color: #0369a1; }
+    .cl-tag.fix-tag      { background: #fef3c7; color: #92400e; }
+    .cl-tag.improve-tag  { background: #f0fdf4; color: #166534; }
+
+    .popup-footer {
+      margin-top: 1.5rem;
+      text-align: center;
+      color: #9ca3af;
+      font-size: 0.8rem;
+    }
+
+    /* ── MAIN ── */
     main {
       flex: 1;
       max-width: 960px;
@@ -63,20 +238,12 @@
       padding: 0 2rem;
       width: 100%;
     }
-
-    
     .hero {
       text-align: center;
       margin-bottom: 2rem;
       animation: fadeIn 0.6s ease-out;
     }
-
-    @keyframes fadeIn {
-      0% { opacity: 0; }
-      100% { opacity: 1; }
-    }
-
-    /*custom logo*/
+    @keyframes fadeIn { 0%{opacity:0} 100%{opacity:1} }
     .hero-icon {
       width: 5rem;
       height: auto;
@@ -84,20 +251,9 @@
       border-radius: 15px;
       display: inline-block;
     }
+    h1 { font-size: 3rem; font-weight: 600; margin-bottom: 0.25rem; }
+    .tagline { font-size: 1.2rem; color: #4b5563; margin-bottom: 2rem; }
 
-    h1 {
-      font-size: 3rem;
-      font-weight: 600;
-      margin-bottom: 0.25rem;
-    }
-
-    .tagline {
-      font-size: 1.2rem;
-      color: #4b5563;
-      margin-bottom: 2rem;
-    }
-
-    
     .download-card {
       background: #ffffff;
       border: 2px solid #e6e6e6;
@@ -107,7 +263,6 @@
       max-width: 520px;
       margin: 0 auto 2.5rem;
     }
-
     .version-info {
       color: #6b7280;
       font-size: 1rem;
@@ -117,11 +272,7 @@
       justify-content: center;
       gap: 10px;
     }
-
-    .version-info i {
-      color: #6b7280;
-    }
-
+    .version-info i { color: #6b7280; }
     .free-badge {
       background: #000000;
       color: #ffffff;
@@ -130,8 +281,6 @@
       font-size: 0.85rem;
       font-weight: normal;
     }
-
-    
     .download-btn {
       display: inline-flex;
       align-items: center;
@@ -150,30 +299,19 @@
       transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
       box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     }
-
     .download-btn i {
       color: #b0b7c0;
       font-size: 1.4rem;
       transition: color 0.2s;
     }
-
     .download-btn:hover {
       background: #1e1e1e;
-      transform: scale(1.03);             
+      transform: scale(1.03);
       box-shadow: 0 10px 18px rgba(0,0,0,0.12);
     }
+    .download-btn:hover i { color: #ffffff; }
+    .file-hint { margin-top: 1rem; color: #9ca3af; font-size: 0.85rem; }
 
-    .download-btn:hover i {
-      color: #ffffff;
-    }
-
-    .file-hint {
-      margin-top: 1rem;
-      color: #9ca3af;
-      font-size: 0.85rem;
-    }
-
-    
     .features {
       display: flex;
       flex-wrap: wrap;
@@ -181,27 +319,10 @@
       gap: 2rem 2.5rem;
       margin: 2.5rem 0 2rem;
     }
+    .feature-item { text-align: center; flex: 0 1 auto; min-width: 90px; }
+    .feature-item i { font-size: 2.5rem; color: #6b7280; margin-bottom: 0.25rem; }
+    .feature-item span { display: block; font-size: 1rem; color: #1f2937; font-weight: 500; }
 
-    .feature-item {
-      text-align: center;
-      flex: 0 1 auto;
-      min-width: 90px;
-    }
-
-    .feature-item i {
-      font-size: 2.5rem;
-      color: #6b7280;
-      margin-bottom: 0.25rem;
-    }
-
-    .feature-item span {
-      display: block;
-      font-size: 1rem;
-      color: #1f2937;
-      font-weight: 500;
-    }
-
-    
     footer {
       text-align: center;
       margin: 2rem 0 1.5rem;
@@ -209,7 +330,6 @@
       border-top: 1px solid #eeeeee;
       padding-top: 1.8rem;
     }
-
     .github-foot {
       display: inline-flex;
       align-items: center;
@@ -218,77 +338,96 @@
       padding: 0.5rem 1.2rem;
       border-radius: 60px;
     }
+    .github-foot i { color: #6b7280; font-size: 1.4rem; }
+    .github-foot a { color: #2c2c2c; text-decoration: none; font-size: 1.1rem; border-bottom: 1px dotted transparent; }
+    .github-foot a:hover { border-bottom: 1px dotted #6b7280; }
+    .copyright { margin-top: 1.2rem; font-size: 0.9rem; color: #9ca3af; }
 
-    .github-foot i {
-      color: #6b7280;
-      font-size: 1.4rem;
-    }
-
-    .github-foot a {
-      color: #2c2c2c;
-      text-decoration: none;
-      font-size: 1.1rem;
-      border-bottom: 1px dotted transparent;
-    }
-
-    .github-foot a:hover {
-      border-bottom: 1px dotted #6b7280;
-    }
-
-    .copyright {
-      margin-top: 1.2rem;
-      font-size: 0.9rem;
-      color: #9ca3af;
-    }
-
-    
+    /* ── RESPONSIVE ── */
     @media (max-width: 640px) {
-      header {
-        padding: 0.8rem 1.2rem;
-      }
-      .site-name {
-        font-size: 1.8rem;
-      }
-      .header-icon a {
-        font-size: 2rem;
-      }
-      h1 {
-        font-size: 2.5rem;
-      }
-      .tagline {
-        font-size: 1rem;
-      }
-      .download-btn {
-        font-size: 1.2rem;
-        padding: 0.9rem 2rem;
-        width: 100%;
-      }
-      .features {
-        gap: 1.5rem;
-      }
-      .feature-item i {
-        font-size: 2.2rem;
-      }
-      /* Optional: scale logo on small screens */
-      .hero-icon {
-        width: 4rem;
-      }
+      header { padding: 0.8rem 1.2rem; }
+      .site-name { font-size: 1.8rem; }
+      .header-icon a { font-size: 2rem; }
+      h1 { font-size: 2.5rem; }
+      .tagline { font-size: 1rem; }
+      .download-btn { font-size: 1.2rem; padding: 0.9rem 2rem; width: 100%; }
+      .features { gap: 1.5rem; }
+      .feature-item i { font-size: 2.2rem; }
+      .hero-icon { width: 4rem; }
+      .popup { padding: 1.5rem 1.2rem 1.4rem; }
     }
-
     @media (max-width: 380px) {
-      .site-name {
-        font-size: 1.6rem;
-      }
-      main {
-        padding: 0 1rem;
-      }
-      .hero-icon {
-        width: 3.5rem;
-      }
+      .site-name { font-size: 1.6rem; }
+      main { padding: 0 1rem; }
+      .hero-icon { width: 3.5rem; }
     }
   </style>
 </head>
 <body>
+
+  <!-- ── WHAT'S NEW BANNER ── -->
+  <div class="whats-new-banner" id="newsBanner" onclick="openPopup()">
+    <span class="badge">NEW</span>
+    <span>v1.1 is here — Sanzu AI is now live! See what changed</span>
+    <span class="banner-arrow">→</span>
+    <button class="banner-close" onclick="closeBanner(event)" aria-label="Dismiss banner">✕</button>
+  </div>
+
+  <!-- ── CHANGELOG POPUP ── -->
+  <div class="overlay" id="overlay" onclick="closePopupOnOverlay(event)">
+    <div class="popup" id="popup">
+      <button class="popup-close" onclick="closePopup()" aria-label="Close">✕</button>
+
+      <div class="popup-header">
+        <span class="emoji">🎉</span>
+        <h2>What's New</h2>
+        <span class="version-tag">v1.1</span>
+      </div>
+
+      <!-- ✏️ EDIT THIS LIST to update your changelog -->
+      <ul class="changelog">
+        <li>
+          <div class="cl-icon new"><i class="fas fa-robot"></i></div>
+          <div class="cl-text">
+            <strong>Sanzu AI <span class="cl-tag new-tag">NEW</span></strong>
+            <span>Meet Sanzu AI — your built-in Python assistant. Ask questions, get explanations, and debug code instantly.</span>
+          </div>
+        </li>
+        <li>
+          <div class="cl-icon new"><i class="fas fa-moon"></i></div>
+          <div class="cl-text">
+            <strong>Dark Mode <span class="cl-tag new-tag">NEW</span></strong>
+            <span>Toggle between light and dark theme from the settings screen.</span>
+          </div>
+        </li>
+        <li>
+          <div class="cl-icon new"><i class="fas fa-bolt"></i></div>
+          <div class="cl-text">
+            <strong>Faster Compiler <span class="cl-tag improve-tag">IMPROVED</span></strong>
+            <span>Code execution is now up to 2× faster with improved output rendering.</span>
+          </div>
+        </li>
+        <li>
+          <div class="cl-icon fix"><i class="fas fa-wrench"></i></div>
+          <div class="cl-text">
+            <strong>Crash Fix on Startup <span class="cl-tag fix-tag">FIX</span></strong>
+            <span>Resolved a crash that affected some Android 12 devices on cold start.</span>
+          </div>
+        </li>
+        <li>
+          <div class="cl-icon improve"><i class="fas fa-book-open"></i></div>
+          <div class="cl-text">
+            <strong>New Python Notes <span class="cl-tag new-tag">NEW</span></strong>
+            <span>Added 8 new topics covering decorators, generators, and list comprehensions.</span>
+          </div>
+        </li>
+      </ul>
+      <!-- ✏️ END OF CHANGELOG LIST -->
+
+      <div class="popup-footer">Released March 2026 · <a href="https://github.com/heysanzu" target="_blank" rel="noopener noreferrer" style="color:#374151;">@heysanzu</a></div>
+    </div>
+  </div>
+
   <header>
     <div class="site-name">Sanzu</div>
     <div class="header-icon">
@@ -308,10 +447,9 @@
     <div class="download-card">
       <div class="version-info">
         <i class="fas fa-tag"></i>
-        <span>v1.0</span>
+        <span>v1.1</span>
         <span class="free-badge">100% free</span>
       </div>
-      <!--Link-->
       <a href="https://drive.google.com/file/d/1cQe2LIscr6-xgnMWzlc90kXROdCeyPI9/view?usp=sharing" class="download-btn" role="button" aria-label="Download APK">
         <i class="fas fa-download" aria-hidden="true"></i>
         Download App
@@ -338,6 +476,10 @@
         <i class="fas fa-newspaper"></i>
         <span>articles</span>
       </div>
+      <div class="feature-item">
+        <i class="fas fa-robot"></i>
+        <span>sanzu AI</span>
+      </div>
     </div>
 
     <footer>
@@ -345,22 +487,29 @@
         <i class="fab fa-github"></i>
         <a href="https://github.com/heysanzu" target="_blank" rel="noopener noreferrer">@heysanzu</a>
       </div>
-      <div class="copyright">
-        © 2026 Sanzu
-      </div>
+      <div class="copyright">© 2026-27 Sanzu</div>
     </footer>
   </main>
+
+  <script>
+    function openPopup() {
+      document.getElementById('overlay').classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closePopup() {
+      document.getElementById('overlay').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    function closePopupOnOverlay(e) {
+      if (e.target === document.getElementById('overlay')) closePopup();
+    }
+    function closeBanner(e) {
+      e.stopPropagation();
+      document.getElementById('newsBanner').style.display = 'none';
+    }
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closePopup();
+    });
+  </script>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
