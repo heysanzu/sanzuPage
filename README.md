@@ -1,7 +1,7 @@
 # Sanzu App
 Python notes and IDE application 👉 <a href="https://heysanzu.github.io/sanzuPage/" download>
   <button style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Download</button>
-</a> 👈
+</a> 
 
 <p align="left">
   <img src="cover.png" alt="cover" width="800">
