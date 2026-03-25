@@ -3,7 +3,7 @@ Python notes and IDE application 👉 <a href="https://heysanzu.github.io/sanzuP
   <button style="padding:10px 20px; background:green; color:white; border:none; border-radius:5px;">Download</button>
 </a> 
 
-<p align="left">
+<p align="center">
   <img src="cover.png" alt="cover" width="800">
 </p>
 
@@ -35,7 +35,7 @@ Added 150+ new comprehensive topics covering advanced concepts like decorators, 
 Full Changelog: https://github.com/heysanzu/sanzuPage/commits/Sanzu_v1.1
 
 <p align="left">
-  <img src="sanzu.png" alt="Logo" width="100">
+  <img src="sanzu.gif" alt="Logo" width="100">
 </p>
 
 👉 <a href="https://heysanzu.github.io/sanzuPage/" download>
